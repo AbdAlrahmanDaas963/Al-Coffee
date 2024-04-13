@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Box, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
@@ -14,7 +14,7 @@ function TabBtn() {
   );
 }
 function Landingpage() {
-  const { isSmall, isMedium, isLarge } = useScreenSize();
+  const { isSmall } = useScreenSize();
 
   return (
     <Stack
@@ -27,7 +27,7 @@ function Landingpage() {
       <Stack
         sx={{
           backgroundColor: "var(--light-blue)",
-          borderRadius: isSmall ? "0" : "10px",
+          borderRadius: isSmall ? "0" : "30px",
           height: "100%",
           padding: "30px",
         }}
@@ -43,7 +43,12 @@ function Landingpage() {
           width={"100%"}
         >
           <Stack>AL-Coffee</Stack>
-          <Stack direction={"row"}>
+          <Stack
+            direction={"row"}
+            sx={{
+              display: isSmall ? "none" : "auto",
+            }}
+          >
             <TabBtn />
             <TabBtn />
             <TabBtn />
@@ -52,7 +57,11 @@ function Landingpage() {
         </Stack>
         {/* content */}
         <Stack>
-          <div style={{ fontSize: "60px" }}>
+          <div
+            style={{
+              fontSize: isSmall ? "40px" : "60px",
+            }}
+          >
             I create <span style={{ color: "#E37239" }}>beautiful</span> <br />
             experiences
           </div>
